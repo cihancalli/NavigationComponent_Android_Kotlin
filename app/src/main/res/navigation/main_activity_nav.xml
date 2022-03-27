@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.zerdasoftware.navigationcomponent.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/actionHomeToGame"
+            app:destination="@id/gameFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.zerdasoftware.navigationcomponent.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/actionGameToResult"
+            app:destination="@id/resultFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="no name" />
+        <argument
+            android:name="numberInt"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="numberFloat"
+            app:argType="float"
+            android:defaultValue="0.0" />
+        <argument
+            android:name="isTrue"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="userObject"
+            app:argType="com.zerdasoftware.navigationcomponent.Users" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.zerdasoftware.navigationcomponent.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/actionResultToGame"
+            app:destination="@id/gameFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/resultFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
